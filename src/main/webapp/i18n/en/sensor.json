@@ -1,0 +1,26 @@
+{
+  "irrigationApp": {
+    "sensor": {
+      "home": {
+        "title": "Sensors",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Sensor",
+        "createOrEditLabel": "Create or edit a Sensor",
+        "notFound": "No Sensors found"
+      },
+      "created": "A new Sensor is created with identifier {{ param }}",
+      "updated": "A Sensor is updated with identifier {{ param }}",
+      "deleted": "A Sensor is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Sensor {{ id }}?"
+      },
+      "detail": {
+        "title": "Sensor"
+      },
+      "id": "ID",
+      "name": "Name",
+      "status": "Status",
+      "plot": "Plot"
+    }
+  }
+}

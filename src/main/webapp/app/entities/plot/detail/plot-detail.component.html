@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="plot">
+      <h2 data-cy="plotDetailsHeading"><span jhiTranslate="irrigationApp.plot.detail.title">Plot</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ plot.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="irrigationApp.plot.cultivatedArea">Cultivated Area</span></dt>
+        <dd>
+          <span>{{ plot.cultivatedArea }}</span>
+        </dd>
+        <dt><span jhiTranslate="irrigationApp.plot.name">Name</span></dt>
+        <dd>
+          <span>{{ plot.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="irrigationApp.plot.location">Location</span></dt>
+        <dd>
+          <span>{{ plot.location }}</span>
+        </dd>
+        <dt><span jhiTranslate="irrigationApp.plot.crop">Crop</span></dt>
+        <dd>
+          <div *ngIf="plot.crop">
+            <a [routerLink]="['/crop', plot.crop.id, 'view']">{{ plot.crop.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="irrigationApp.plot.sensor">Sensor</span></dt>
+        <dd>
+          <div *ngIf="plot.sensor">
+            <a [routerLink]="['/sensor', plot.sensor.id, 'view']">{{ plot.sensor.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/plot', plot.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

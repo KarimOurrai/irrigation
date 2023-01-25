@@ -1,0 +1,107 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-time-slot-heading" data-cy="TimeSlotCreateUpdateHeading" jhiTranslate="irrigationApp.timeSlot.home.createOrEditLabel">
+        Create or edit a Time Slot
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="irrigationApp.timeSlot.startTime" for="field_startTime">Start Time</label>
+          <div class="d-flex">
+            <input
+              id="field_startTime"
+              data-cy="startTime"
+              type="datetime-local"
+              class="form-control"
+              name="startTime"
+              formControlName="startTime"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="irrigationApp.timeSlot.endTime" for="field_endTime">End Time</label>
+          <div class="d-flex">
+            <input
+              id="field_endTime"
+              data-cy="endTime"
+              type="datetime-local"
+              class="form-control"
+              name="endTime"
+              formControlName="endTime"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="irrigationApp.timeSlot.status" for="field_status">Status</label>
+          <div class="d-flex">
+            <input
+              id="field_status"
+              data-cy="status"
+              type="datetime-local"
+              class="form-control"
+              name="status"
+              formControlName="status"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="irrigationApp.timeSlot.waterAmount" for="field_waterAmount">Water Amount</label>
+          <input
+            type="number"
+            class="form-control"
+            name="waterAmount"
+            id="field_waterAmount"
+            data-cy="waterAmount"
+            formControlName="waterAmount"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="irrigationApp.timeSlot.plot" for="field_plot">Plot</label>
+          <select class="form-control" id="field_plot" data-cy="plot" name="plot" formControlName="plot" [compareWith]="comparePlot">
+            <option [ngValue]="null"></option>
+            <option [ngValue]="plotOption" *ngFor="let plotOption of plotsSharedCollection">{{ plotOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="irrigationApp.timeSlot.plot" for="field_plot">Plot</label>
+          <select class="form-control" id="field_plot" data-cy="plot" name="plot" formControlName="plot" [compareWith]="comparePlot">
+            <option [ngValue]="null"></option>
+            <option [ngValue]="plotOption" *ngFor="let plotOption of plotsSharedCollection">{{ plotOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,79 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-plot-heading" data-cy="PlotCreateUpdateHeading" jhiTranslate="irrigationApp.plot.home.createOrEditLabel">
+        Create or edit a Plot
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="irrigationApp.plot.cultivatedArea" for="field_cultivatedArea">Cultivated Area</label>
+          <input
+            type="number"
+            class="form-control"
+            name="cultivatedArea"
+            id="field_cultivatedArea"
+            data-cy="cultivatedArea"
+            formControlName="cultivatedArea"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="irrigationApp.plot.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="irrigationApp.plot.location" for="field_location">Location</label>
+          <input type="text" class="form-control" name="location" id="field_location" data-cy="location" formControlName="location" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="irrigationApp.plot.crop" for="field_crop">Crop</label>
+          <select class="form-control" id="field_crop" data-cy="crop" name="crop" formControlName="crop" [compareWith]="compareCrop">
+            <option [ngValue]="null"></option>
+            <option [ngValue]="cropOption" *ngFor="let cropOption of cropsSharedCollection">{{ cropOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="irrigationApp.plot.sensor" for="field_sensor">Sensor</label>
+          <select
+            class="form-control"
+            id="field_sensor"
+            data-cy="sensor"
+            name="sensor"
+            formControlName="sensor"
+            [compareWith]="compareSensor"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="sensorOption" *ngFor="let sensorOption of sensorsSharedCollection">{{ sensorOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

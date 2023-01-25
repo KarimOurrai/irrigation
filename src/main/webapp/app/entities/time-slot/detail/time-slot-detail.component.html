@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="timeSlot">
+      <h2 data-cy="timeSlotDetailsHeading"><span jhiTranslate="irrigationApp.timeSlot.detail.title">Time Slot</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ timeSlot.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="irrigationApp.timeSlot.startTime">Start Time</span></dt>
+        <dd>
+          <span>{{ timeSlot.startTime | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="irrigationApp.timeSlot.endTime">End Time</span></dt>
+        <dd>
+          <span>{{ timeSlot.endTime | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="irrigationApp.timeSlot.status">Status</span></dt>
+        <dd>
+          <span>{{ timeSlot.status | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="irrigationApp.timeSlot.waterAmount">Water Amount</span></dt>
+        <dd>
+          <span>{{ timeSlot.waterAmount }}</span>
+        </dd>
+        <dt><span jhiTranslate="irrigationApp.timeSlot.plot">Plot</span></dt>
+        <dd>
+          <div *ngIf="timeSlot.plot">
+            <a [routerLink]="['/plot', timeSlot.plot.id, 'view']">{{ timeSlot.plot.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="irrigationApp.timeSlot.plot">Plot</span></dt>
+        <dd>
+          <div *ngIf="timeSlot.plot">
+            <a [routerLink]="['/plot', timeSlot.plot.id, 'view']">{{ timeSlot.plot.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/time-slot', timeSlot.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

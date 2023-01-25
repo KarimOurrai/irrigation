@@ -1,0 +1,45 @@
+{
+  "applications": "*",
+  "changelogDate": "20230124204830",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "time_slot",
+  "fields": [
+    {
+      "fieldName": "startTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "endTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "waterAmount",
+      "fieldType": "Double"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "TimeSlot",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "plot",
+      "otherEntityRelationshipName": "timeSlot",
+      "relationshipName": "plot",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "plot",
+      "otherEntityRelationshipName": "timeSlot",
+      "relationshipName": "plot",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

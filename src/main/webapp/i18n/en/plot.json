@@ -1,0 +1,30 @@
+{
+  "irrigationApp": {
+    "plot": {
+      "home": {
+        "title": "Plots",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Plot",
+        "createOrEditLabel": "Create or edit a Plot",
+        "notFound": "No Plots found"
+      },
+      "created": "A new Plot is created with identifier {{ param }}",
+      "updated": "A Plot is updated with identifier {{ param }}",
+      "deleted": "A Plot is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Plot {{ id }}?"
+      },
+      "detail": {
+        "title": "Plot"
+      },
+      "id": "ID",
+      "cultivatedArea": "Cultivated Area",
+      "name": "Name",
+      "location": "Location",
+      "timeSlot": "Time Slot",
+      "crop": "Crop",
+      "sensor": "Sensor",
+      "timeSlot": "Time Slot"
+    }
+  }
+}

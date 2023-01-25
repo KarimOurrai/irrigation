@@ -1,0 +1,53 @@
+{
+  "applications": "*",
+  "changelogDate": "20230124204827",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "plot",
+  "fields": [
+    {
+      "fieldName": "cultivatedArea",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "location",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Plot",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "timeSlot",
+      "otherEntityRelationshipName": "plot",
+      "relationshipName": "timeSlot",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "crop",
+      "otherEntityRelationshipName": "plot",
+      "relationshipName": "crop",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "sensor",
+      "otherEntityRelationshipName": "plot",
+      "relationshipName": "sensor",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "timeSlot",
+      "otherEntityRelationshipName": "plot",
+      "relationshipName": "timeSlot",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

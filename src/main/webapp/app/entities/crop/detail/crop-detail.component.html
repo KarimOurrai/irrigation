@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="crop">
+      <h2 data-cy="cropDetailsHeading"><span jhiTranslate="irrigationApp.crop.detail.title">Crop</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ crop.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="irrigationApp.crop.type">Type</span></dt>
+        <dd>
+          <span>{{ crop.type }}</span>
+        </dd>
+        <dt><span jhiTranslate="irrigationApp.crop.waterAmount">Water Amount</span></dt>
+        <dd>
+          <span>{{ crop.waterAmount }}</span>
+        </dd>
+        <dt><span jhiTranslate="irrigationApp.crop.duration">Duration</span></dt>
+        <dd>
+          <span>{{ crop.duration }}</span>
+        </dd>
+        <dt><span jhiTranslate="irrigationApp.crop.area">Area</span></dt>
+        <dd>
+          <span>{{ crop.area }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/crop', crop.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+{
+  "applications": "*",
+  "changelogDate": "20230124204829",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "sensor",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Sensor",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "plot",
+      "otherEntityRelationshipName": "sensor",
+      "relationshipName": "plot",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}
